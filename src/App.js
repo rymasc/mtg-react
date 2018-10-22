@@ -10,10 +10,13 @@ import { Rehydrated } from "aws-appsync-react";
 import CardList from './Components/CardList';
 
 const Home = () => (
-  <div className="ui container">
-    <h1>Ryan's MTG Cards</h1>
-    <CardList />
-  </div>
+  <ApolloProvider client={client}>
+    <div className="ui container">
+      <h1>Ryan's MTG Cards</h1>
+      <CardList />
+    </div>
+  </ApolloProvider>
+
 );
 
 const App = () => (
