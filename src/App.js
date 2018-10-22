@@ -4,16 +4,19 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 import appSyncConfig from "./aws-exports";
 import { ApolloProvider } from "react-apollo";
 import AWSAppSyncClient, { defaultDataIdFromObject } from "aws-appsync";
-import { Rehydrated } from "aws-appsync-react";
+//import { Rehydrated } from "aws-appsync-react";
 
 
 import CardList from './Components/CardList';
 
 const Home = () => (
-    <div className="ui container">
+  <ApolloProvider client={client}>
+   <div className="ui container">
       <h1>Ryan's MTG Cards</h1>
       <CardList />
-    </div>
+    </div> 
+  </ApolloProvider>
+  
 );
 
 const App = () => (
@@ -50,12 +53,12 @@ const client = new AWSAppSyncClient({
   }
 });
 
-const WithProvider = () => (
-  <ApolloProvider client={client}>
-    <Rehydrated>
-      <App />
-    </Rehydrated>
-  </ApolloProvider>
-);
+// const WithProvider = () => (
+//   <ApolloProvider client={client}>
+//     <Rehydrated>
+//       <App />
+//     </Rehydrated>
+//   </ApolloProvider>
+// );
 
-export default WithProvider;
+export default App;
