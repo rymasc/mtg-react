@@ -1,4 +1,3 @@
-import React, { Component } from 'react';
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import appSyncConfig from "./aws-exports";
@@ -10,13 +9,10 @@ import { Rehydrated } from "aws-appsync-react";
 import CardList from './Components/CardList';
 
 const Home = () => (
-  <ApolloProvider client={client}>
     <div className="ui container">
       <h1>Ryan's MTG Cards</h1>
       <CardList />
     </div>
-  </ApolloProvider>
-
 );
 
 const App = () => (
@@ -61,4 +57,4 @@ const WithProvider = () => (
   </ApolloProvider>
 );
 
-export default App;
+export default WithProvider;
