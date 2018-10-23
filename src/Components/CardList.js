@@ -24,7 +24,7 @@ class CardList extends Component {
       } else{
           return data.listCards.items.map(card =>{
               return(
-                  <li key={card.id}>{card.name} </li>
+                  <li key={card.id}>{card.name} - {card.card_type} {card.power}/{card.toughness}</li>
               );
           });
       }
