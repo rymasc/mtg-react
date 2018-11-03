@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import {gql} from 'apollo-boost';
 import {graphql} from 'react-apollo';
 
-const getBooksQuery = gql(`
+const getCardsQuery = gql(`
 query {
   listCards(limit: 1000) {
     items {
@@ -19,6 +19,8 @@ class CardList extends Component {
 
   displayCards(){
       const data = this.props.data;
+      console.log(data);
+      
       if (data.loading){
           return(<div>loading cards...</div>);
       } else{
@@ -40,4 +42,24 @@ class CardList extends Component {
   }
 }
 
-export default graphql(getBooksQuery)(CardList);
+export default graphql(getCardsQuery)(CardList);
+
+
+
+{
+  client(id: 1234){
+    first_name
+    last_name
+    date
+  }
+}
+
+{
+  clients(limit: 1000){
+    items{
+      name
+      PaymentAddress
+      fFUKYOU
+    }
+  }
+}
